@@ -26,7 +26,27 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               children: [
                 _buildPageContent(
                   image: "assets/netflix-1.jpg",
-                  body: "trying to \n join Netflix?"
+                  body: "Trying to \n join Netflix?",
+                    desc:"You can sign up for Netflix in \n the app. We know it's hassle. \n After you're a member, you \ncant start  watching in the app.",
+                  color: Color.fromRGBO(83,244,21, 1),
+                ),
+                _buildPageContent(
+                  image: "assets/netflix-2.png",
+                  body: "Watch on \n any device?",
+                  desc:"Stream on your phone, tablet, laptop, and TV",
+                  color: Color.fromRGBO(255, 141, 104, 1),
+                ),
+                _buildPageContent(
+                  image: "assets/netflix-3.png",
+                  body: "3,2,1...Download!",
+                  desc:"Always have something to watch offline.",
+                  color: Color.fromRGBO(195, 169, 255, 1),
+                ),
+                _buildPageContent(
+                  image: "assets/netflix-4.png",
+                  body: "No pesky contracts.",
+                  desc:"Cancel anytime.",
+                  color: Color.fromRGBO(130, 172, 38, 1),
                 )
               ],
             )
@@ -53,7 +73,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           Padding(
             padding: EdgeInsets.only(top:200),
             child: Text(body,textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 35,fontWeight: FontWeight.w800,color: Colors.white),
+            style: TextStyle(fontSize: 35,fontWeight: FontWeight.w800,color: color),
             ),
           ),
           SizedBox(height: 10,),
