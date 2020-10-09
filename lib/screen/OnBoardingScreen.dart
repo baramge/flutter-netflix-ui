@@ -135,6 +135,23 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   SizedBox(height: 15,),
                   Container(
                     alignment: Alignment.center,
+                    width: MediaQuery.of(context).size.width * .94,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(2)),
+                      color: Color.fromRGBO(213, 0, 2, 1)
+                    ),
+                    child: Center(
+                      child: InkWell(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text("SiGN IN",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)
+                          ],
+                        ),
+                      ),
+                    ),
                   )
                 ],
               ),
