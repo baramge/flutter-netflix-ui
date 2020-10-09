@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:netflix_ui/screen/SignInScreen.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   @override
@@ -150,6 +151,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             Text("SiGN IN",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)
                           ],
                         ),
+                        onTap: (){
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>
+                          new SignInScreen()));
+                        },
                       ),
                     ),
                   )
