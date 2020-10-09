@@ -4,7 +4,7 @@ import 'package:netflix_ui/screen/SplashScreen.dart';
 
 void main() {
   runApp(MaterialApp(
-  home: OnBoardingScreen(),
+  home: SplashScreen(),
   ));
 }
 

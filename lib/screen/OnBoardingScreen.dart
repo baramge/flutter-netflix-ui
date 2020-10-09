@@ -7,7 +7,7 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
-  final int _totalPages = 4;
+  final int _totalPages = 3;
   final PageController _pageController = PageController(initialPage: 0);
   int _currentPage = 0;
 
@@ -47,8 +47,53 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   body: "No pesky contracts.",
                   desc:"Cancel anytime.",
                   color: Color.fromRGBO(130, 172, 38, 1),
-                )
+                ),
               ],
+            ),
+                //Header
+            Positioned(
+              top: 5,
+              left: MediaQuery.of(context).size.width * .03,
+              child: Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: Row(
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      width: MediaQuery.of(context).size.width * .9,
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 80,
+                            child: Image.asset('assets/netflix.png'),
+                          ),
+                          Spacer(),
+                          InkWell(
+                            onTap: (){},
+                            child: Container(
+                              alignment:Alignment.center,
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(right: 10),
+                                    child: Text("Help",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 15),),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(right: 10),
+                                    child: Text("Privacy",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 15),),
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
             )
           ],
         ),

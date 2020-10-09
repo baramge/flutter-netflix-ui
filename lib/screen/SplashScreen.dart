@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_ui/screen/OnBoardingScreen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -6,6 +7,12 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState(){
+    super.initState();
+    _initializeState();
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,6 +22,18 @@ class _SplashScreenState extends State<SplashScreen> {
           fit: BoxFit.fill
         )
       ),
+    );
+  }
+  Future<void> _initializeState() async{
+    Future.delayed(
+      Duration(milliseconds: 2450),
+        (){
+        try{
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>new OnBoardingScreen()));
+        }catch(e){
+          print(e);
+        }
+        }
     );
   }
 }
