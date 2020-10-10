@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:netflix_ui/screen/MainScreen.dart';
 
 class SignInScreen extends StatefulWidget {
   SignInScreen({Key key}) : super(key: key);
@@ -133,7 +134,11 @@ class _SignInScreenState extends State<SignInScreen> {
                           )
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>
+                        new MainScreen()));
+
+                      },
                     ),
                   ),
                 ),
