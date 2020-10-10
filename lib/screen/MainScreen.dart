@@ -15,7 +15,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
-        child: Container(),
+        child: pageChange(),
       ),
       bottomNavigationBar: SizedBox(
         height: 45,
@@ -91,7 +91,52 @@ class _MainScreenState extends State<MainScreen> {
                       color: (index == 0) ? Colors.white : Colors.grey),
                 ))
           ],
+          onTap:(int index){
+            setState(() {
+              this.index=index;
+            });
+          } ,
         ),
+      ),
+    );
+  }
+  /*handle event click page*/
+  Widget pageChange(){
+    if(this.index==0){
+      return widgetList();
+    }
+    return Container();
+  }
+
+  Widget widgetList(){
+    return Column(
+      children: [
+        Stack(
+          children: [
+            /*list view widget*/
+            mainView(),
+          ],
+        )
+      ],
+    );
+  }
+  Widget mainView(){
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/netflix-movie4.jpg"),
+          fit: BoxFit.cover,
+        )
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: 250),
+            child: Container(),
+          )
+        ],
       ),
     );
   }
