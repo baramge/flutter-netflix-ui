@@ -196,8 +196,38 @@ class _MainScreenState extends State<MainScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
                         Icon(Icons.add,color: Colors.white,),
                         Text("My List" ,style: TextStyle(color: Colors.grey,fontSize: 14,fontWeight: FontWeight.bold),),
+
+                          ],
+                        ),
+                        Container(
+                          alignment: Alignment.center,
+                          height: 30,
+                          width: 80,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(2)),
+                            color: Colors.white,
+                          ),
+                          child: Center(
+                            child: InkWell(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.play_arrow),
+                                  Text("Play" ,style: TextStyle(color: Colors.black,fontSize: 14,fontWeight: FontWeight.bold),),
+
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(),
                       ],
                     ),
                   )
