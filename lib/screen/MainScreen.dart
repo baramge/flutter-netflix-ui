@@ -13,11 +13,11 @@ class _MainScreenState extends State<MainScreen> {
 
   //list image preview
   List imagePreview=[
-    {"image":"assets/netflix-movie1.jpg","title":"A","color":Colors.orangeAccent},
-    {"image":"assets/netflix-movie2.jpg","title":"A","color":Colors.white},
-    {"image":"assets/netflix-movie3.jpg","title":"A","color":Colors.grey},
-    {"image":"assets/netflix-movie4.jpg","title":"A","color":Colors.orangeAccent},
-    {"image":"assets/netflix-movie5.jpg","title":"A","color":Colors.red},
+    {"image":"assets/netflix-movie1.jpg","title":"Imperial Dreams","color":Colors.orangeAccent},
+    {"image":"assets/netflix-movie2.jpg","title":"Quick Sands","color":Colors.white},
+    {"image":"assets/netflix-movie3.jpg","title":"The Haunting","color":Colors.grey},
+    {"image":"assets/netflix-movie4.jpg","title":"The Irishman","color":Colors.orangeAccent},
+    {"image":"assets/netflix-movie5.jpg","title":"Extention","color":Colors.red},
   ];
 
   @override
@@ -169,7 +169,7 @@ class _MainScreenState extends State<MainScreen> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/stranger_thing.jpg",),
+          image: AssetImage("assets/netflix-series3.jpg",),
 
         )
       ),
@@ -193,10 +193,10 @@ class _MainScreenState extends State<MainScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Image.asset("assets/netflix_logo.png",height: 20,width: 20,),
-                      Text("SERIES",style: TextStyle(color:Colors.grey),)
+                      Text("SERIES",style: TextStyle(color:Colors.white70),)
                     ],
                   ),
-                  Text("STRANGER\n THINGS",textAlign: TextAlign.center,
+                  Text("13 REASONS\n WHY",textAlign: TextAlign.center,
                   style:TextStyle(
                     fontSize: 35,
                     color: Colors.white,
@@ -206,7 +206,7 @@ class _MainScreenState extends State<MainScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text("Ominous",style: TextStyle(color: Colors.grey)),
+                      Text("Drama",style: TextStyle(color: Colors.white70)),
                       Padding(
                         padding: EdgeInsets.only(left: 10,right:10),
                         child: Container(
@@ -218,7 +218,7 @@ class _MainScreenState extends State<MainScreen> {
                           width: 5,
                         ),
                       ),
-                      Text("Exciting",style: TextStyle(color: Colors.grey)),
+                      Text("Myster",style: TextStyle(color: Colors.white70)),
                       Padding(
                         padding: EdgeInsets.only(left: 10,right:10),
                         child: Container(
@@ -230,7 +230,7 @@ class _MainScreenState extends State<MainScreen> {
                           width: 5,
                         ),
                       ),
-                      Text("Teen",style: TextStyle(color: Colors.grey)),
+                      Text("Teen",style: TextStyle(color: Colors.white70)),
 
                     ],
                   ),
@@ -322,11 +322,32 @@ class _MainScreenState extends State<MainScreen> {
                           shape: BoxShape.circle,
                           image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: AssetImage(imagePreview[index]["image"])
+                            image: AssetImage(imagePreview[index]["image"]),
                           )
                         ),
                       ),
                     ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 5),
+                      child: Align(
+                        alignment: FractionalOffset.bottomCenter,
+                        child: Container(
+                          height: 20,
+                          width: 100,
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.8),
+                                spreadRadius: 10,
+                                blurRadius: 5,
+                                offset: Offset(0,5),
+                              ),
+                            ],
+                          ),
+                          child: Text(imagePreview[index]["title"],style: TextStyle(color: Colors.white),),
+                        ),
+                      ),
+                    )
                   ],
                 ),
               );

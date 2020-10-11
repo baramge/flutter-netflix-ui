@@ -26,7 +26,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               },
               children: [
                 _buildPageContent(
-                  image: "assets/netflix-1.jpg",
+                  image: "assets/netflix_home_background.jpg",
                   body: "Trying to \n join Netflix?",
                   desc:
                       "You can sign up for Netflix in \n the app. We know it's hassle. \n After you're a member, you \ncant start  watching in the app.",
