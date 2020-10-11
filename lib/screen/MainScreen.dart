@@ -121,6 +121,38 @@ class _MainScreenState extends State<MainScreen> {
       ],
     );
   }
+
+  //header menu
+  Widget headerMenu(){
+    return Positioned(
+      child: AppBar(
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        leading: Container(
+          child: Image.asset("assets/netflix_logo.png"),
+        ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(right: 20,top: 20),
+              child: Text("TV Programmes",style: TextStyle(color: Colors.white,fontSize: 15),),
+            ),
+            Padding(
+              padding: EdgeInsets.only(right: 20,top: 20),
+              child: Text("Films",style: TextStyle(color: Colors.white,fontSize: 15),),
+            ),
+            Padding(
+              padding: EdgeInsets.only(right: 20,top: 20),
+              child: Text("My List",style: TextStyle(color: Colors.white,fontSize: 15),),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+
   Widget mainView(){
     return Container(
       decoration: BoxDecoration(
@@ -192,8 +224,9 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: 10,left: 25,right: 25),
+
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Column(
@@ -214,6 +247,7 @@ class _MainScreenState extends State<MainScreen> {
                             color: Colors.white,
                           ),
                           child: Center(
+
                             child: InkWell(
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -227,7 +261,15 @@ class _MainScreenState extends State<MainScreen> {
                             ),
                           ),
                         ),
-                        Container(),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(Icons.info_outline,color: Colors.white,),
+                            Text("Info" ,style: TextStyle(color: Colors.grey,fontSize: 14,),),
+
+                          ],
+                        ),
                       ],
                     ),
                   )
