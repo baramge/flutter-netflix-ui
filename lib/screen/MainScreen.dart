@@ -148,7 +148,7 @@ class _MainScreenState extends State<MainScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Image.asset("assets/netflix_logo.jpg",height: 30,width: 30,),
+                      Image.asset("assets/netflix_logo.png",height: 20,width: 20,),
                       Text("SERIES",style: TextStyle(color:Colors.grey),)
                     ],
                   ),

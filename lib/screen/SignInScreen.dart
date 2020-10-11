@@ -65,6 +65,18 @@ class _SignInScreenState extends State<SignInScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset("assets/netflix_logo.png",height: 45,width: 40,),
+                   Text("Sign In" ,style: TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.bold),),
+
+                ],
+              ),
+
+
               Padding(
                 padding: EdgeInsets.only(top: 20.0, right: 40, left: 40),
                 child: Container(
