@@ -13,7 +13,11 @@ class _MainScreenState extends State<MainScreen> {
 
   //list image preview
   List imagePreview=[
-
+    {"image":"assets/netflix-movie1.jpg","title":"A","color":Colors.orangeAccent},
+    {"image":"assets/netflix-movie2.jpg","title":"A","color":Colors.white},
+    {"image":"assets/netflix-movie3.jpg","title":"A","color":Colors.grey},
+    {"image":"assets/netflix-movie4.jpg","title":"A","color":Colors.orangeAccent},
+    {"image":"assets/netflix-movie5.jpg","title":"A","color":Colors.red},
   ];
 
   @override
@@ -301,7 +305,32 @@ class _MainScreenState extends State<MainScreen> {
         ),
         Container(
           height: 120,
-          child: ListView.builder(itemBuilder: null,),
+          child: ListView.builder(
+            itemCount: imagePreview.length,
+            padding: EdgeInsets.only(top: 10,left: 10),
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context,index){
+              return Container(
+                child: Stack(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(right: 15),
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(imagePreview[index]["image"])
+                          )
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },),
         ),
       ],
     );
