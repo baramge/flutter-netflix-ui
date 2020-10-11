@@ -11,6 +11,11 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int index = 0;
 
+  //list image preview
+  List imagePreview=[
+
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,8 +121,10 @@ class _MainScreenState extends State<MainScreen> {
           children: [
             /*list view widget*/
             mainView(),
+            headerMenu(),
           ],
-        )
+        ),
+            preview()
       ],
     );
   }
@@ -129,7 +136,8 @@ class _MainScreenState extends State<MainScreen> {
         backgroundColor: Colors.transparent,
         centerTitle: true,
         leading: Container(
-          child: Image.asset("assets/netflix_logo.png"),
+          child:Image.asset("assets/netflix_logo.png",height: 0,width: 20,),
+
         ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -280,6 +288,22 @@ class _MainScreenState extends State<MainScreen> {
           )
         ],
       ),
+    );
+  }
+  Widget preview(){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(left: 10,top: 10),
+          child: Text("Preview",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+        ),
+        Container(
+          height: 120,
+          child: ListView.builder(itemBuilder: null,),
+        ),
+      ],
     );
   }
 }
