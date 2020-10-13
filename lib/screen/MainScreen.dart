@@ -22,6 +22,34 @@ class _MainScreenState extends State<MainScreen> {
     {"image":"assets/netflix-movie7.jpg","title":"Tall Girls","color":Colors.blueAccent},
     {"image":"assets/netflix-movie8.jpg","title":"Old Guard","color":Colors.red},
   ];
+  List popularView=[
+    {"image":"assets/netflix-movie6.jpg"},
+    {"image":"assets/netflix-movie7.jpg"},
+    {"image":"assets/netflix-movie8.jpg"},
+    {"image":"assets/netflix-movie9.jpg"},
+    {"image":"assets/netflix-movie10.jpg"},
+  ];
+  List trendingView=[
+    {"image":"assets/netflix-movie11.png"},
+    {"image":"assets/netflix-movie12.jpg"},
+    {"image":"assets/netflix-movie13.jpg"},
+    {"image":"assets/netflix-movie14.jpg"},
+    {"image":"assets/netflix-movie15.jpg"},
+  ];
+  List watchAgainView=[
+    {"image":"assets/netflix-movie16.jpg"},
+    {"image":"assets/netflix-movie17.jpg"},
+    {"image":"assets/netflix-movie18.jpg"},
+    {"image":"assets/netflix-movie19.jpg"},
+    {"image":"assets/netflix-movie20.jpg"},
+  ];
+  List seriesView=[
+    {"image":"assets/netflix-series1.jpg"},
+    {"image":"assets/netflix-series2.jpg"},
+    {"image":"assets/netflix-series4.jpg"},
+    {"image":"assets/netflix-series5.jpg"},
+    {"image":"assets/netflix-series6.jpg"},
+    ];
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +159,11 @@ class _MainScreenState extends State<MainScreen> {
             headerMenu(),
           ],
         ),
-            preview()
+            preview(),
+        popularViews(),
+        trendingViews(),
+        watchAgainViews(),
+
       ],
     );
   }
@@ -360,6 +392,129 @@ class _MainScreenState extends State<MainScreen> {
               );
             },),
         ),
+      ],
+    );
+  }
+  Widget popularViews(){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(top: 10,left: 10),
+          child: Text("Popular on Netflix",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+        ),
+        Container(
+          height: 150,
+          child: ListView.builder(
+            itemCount: popularView.length,
+            padding: EdgeInsets.only(top: 10,left: 10),
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context,index){
+              return Container(
+                child: Stack(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(right: 10),
+                      child: Container(
+                        height: 150,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: AssetImage(popularView[index]["image"]),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
+
+      ],
+    );
+  }
+  Widget trendingViews(){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(top: 10,left: 10),
+          child: Text("Trending right now",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+        ),
+        Container(
+          height: 150,
+          child: ListView.builder(
+            itemCount: popularView.length,
+            padding: EdgeInsets.only(top: 10,left: 10),
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context,index){
+              return Container(
+                child: Stack(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(right: 10),
+                      child: Container(
+                        height: 150,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: AssetImage(trendingView[index]["image"]),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
+
+      ],
+    );
+  }
+  Widget watchAgainViews(){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(top: 10,left: 10),
+          child: Text("Trending right now",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+        ),
+        Container(
+          height: 150,
+          child: ListView.builder(
+            itemCount: popularView.length,
+            padding: EdgeInsets.only(top: 10,left: 10),
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context,index){
+              return Container(
+                child: Stack(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(right: 10),
+                      child: Container(
+                        height: 150,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: AssetImage(watchAgainView[index]["image"]),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
+
       ],
     );
   }
