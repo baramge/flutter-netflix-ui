@@ -8,7 +8,7 @@ New take on Netflix UI concept using Flutter framework.
   <img src="https://img.shields.io/badge/Language-Dart-f0db4f.svg" /><br/>
 </p>
 <p float="left">
-    <img src="screenshoots/Screenshot_14.png" />
-    <img src="screenshoots/Screenshot_15.png" width="100"/>
-    <img src="screenshoots/Screenshot_13.png" width="100"/>
+    <img src="screenshoots/Screenshot_14.png" width="200"/>
+    <img src="screenshoots/Screenshot_15.png" width="200"/>
+    <img src="screenshoots/Screenshot_13.png" width="200"/>
 </p>
