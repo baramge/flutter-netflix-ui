@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:netflix_ui/screen/VideoPlayScreen.dart';
 
 class MainScreen extends StatefulWidget {
   MainScreen({Key key}) : super(key: key);
@@ -59,78 +60,87 @@ class _MainScreenState extends State<MainScreen> {
         child: pageChange(),
       ),
       bottomNavigationBar: SizedBox(
-        height: 45,
+        height: 65,
         child: BottomNavigationBar(
           selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.grey,
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.black,
           currentIndex: index,
+          selectedLabelStyle: TextStyle(fontSize: 8),
+          unselectedLabelStyle: TextStyle(fontSize: 8),
           items: [
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home,
                   size: 20,
-                  color: (index == 0) ? Colors.white : Colors.grey,
+                  // color: (index == 0) ? Colors.white : Colors.grey,
                 ),
-                title: Text(
-                  "Home",
-                  style: TextStyle(
-                      fontSize: 8,
-                      color: (index == 0) ? Colors.white : Colors.grey),
-                )
+                label: "Home",
+                // title: Text(
+                //   "Home",
+                //   style: TextStyle(
+                //       fontSize: 8,
+                //       color: (index == 0) ? Colors.white : Colors.grey),
+                // )
             ),
 
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.search,
                   size: 20,
-                  color: (index == 0) ? Colors.white : Colors.grey,
+                  // color: (index == 1) ? Colors.white : Colors.grey,
                 ),
-                title: Text(
-                  "Search",
-                  style: TextStyle(
-                      fontSize: 8,
-                      color: (index == 0) ? Colors.white : Colors.grey),
-                )),
+                label: "Search"
+            ),
+                // title: Text(
+                //   "Search",
+                //   style: TextStyle(
+                //       fontSize: 8,
+                //       color: (index == 0) ? Colors.white : Colors.grey),
+                // )),
 
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.queue_play_next,
                   size: 20,
-                  color: (index == 0) ? Colors.white : Colors.grey,
+                  // color  : (index == 2) ? Colors.white : Colors.grey,
                 ),
-                title: Text(
-                  "Coming Soon",
-                  style: TextStyle(
-                      fontSize: 8,
-                      color: (index == 0) ? Colors.white : Colors.grey),
-                )),
+                label: "Coming Soon",),
+                // title: Text(
+                //   "Coming Soon",
+                //   style: TextStyle(
+                //       fontSize: 8,
+                //       color: (index == 0) ? Colors.white : Colors.grey),
+                // )),
 
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.file_download,
                   size: 20,
-                  color: (index == 0) ? Colors.white : Colors.grey,
+                  // color: (index == 3) ? Colors.white : Colors.grey,
                 ),
-                title: Text(
-                  "Download",
-                  style: TextStyle(
-                      fontSize: 8,
-                      color: (index == 0) ? Colors.white : Colors.grey),
-                )),
+                label: "Download",),
+                // title: Text(
+                //   "Download",
+                //   style: TextStyle(
+                //       fontSize: 8,
+                //       color: (index == 0) ? Colors.white : Colors.grey),
+                // )),
 
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.toc,
                   size: 20,
-                  color: (index == 0) ? Colors.white : Colors.grey,
+                  // color: (index == 4) ? Colors.white : Colors.grey,
                 ),
-                title: Text(
-                  "More",
-                  style: TextStyle(
-                      fontSize: 8,
-                      color: (index == 0) ? Colors.white : Colors.grey),
-                ))
+                label: "More",),
+                // title: Text(
+                //   "More",
+                //   style: TextStyle(
+                //       fontSize: 8,
+                //       color: (index == 0) ? Colors.white : Colors.grey),
+                // ))
           ],
           onTap:(int index){
             setState(() {
@@ -247,7 +257,7 @@ class _MainScreenState extends State<MainScreen> {
                     children: [
                       Text("Drama",style: TextStyle(color: Colors.white70)),
                       Padding(
-                        padding: EdgeInsets.only(left: 10,right:10),
+                           padding: EdgeInsets.only(left: 10,right:10),
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -309,6 +319,10 @@ class _MainScreenState extends State<MainScreen> {
 
                                 ],
                               ),
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>
+                                new VideoPlayScreen()));
+                              },
                             ),
                           ),
                         ),

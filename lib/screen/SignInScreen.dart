@@ -147,7 +147,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         ],
                       ),
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>
                         new MainScreen()));
 
                       },

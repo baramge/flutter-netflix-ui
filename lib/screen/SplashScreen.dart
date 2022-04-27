@@ -29,7 +29,8 @@ class _SplashScreenState extends State<SplashScreen> {
       Duration(milliseconds: 2450),
         (){
         try{
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>new OnBoardingScreen()));
+          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>new OnBoardingScreen()));
+          // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>new OnBoardingScreen()));
         }catch(e){
           print(e);
         }
