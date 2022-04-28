@@ -12,7 +12,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int index = 0;
 
-  //list image preview
+  //list image preview image
   List imagePreview=[
     {"image":"assets/netflix-movie1.jpg","title":"Imperial Dreams","color":Colors.orangeAccent},
     {"image":"assets/netflix-movie2.jpg","title":"Quick Sands","color":Colors.white},
@@ -31,18 +31,18 @@ class _MainScreenState extends State<MainScreen> {
     {"image":"assets/netflix-movie10.jpg"},
   ];
   List trendingView=[
-    {"image":"assets/netflix-movie11.png"},
-    {"image":"assets/netflix-movie12.jpg"},
-    {"image":"assets/netflix-movie13.jpg"},
-    {"image":"assets/netflix-movie14.jpg"},
-    {"image":"assets/netflix-movie15.jpg"},
+    {"image":"assets/netflix-movie3.jpg"},
+    {"image":"assets/netflix-movie10.jpg"},
+    {"image":"assets/netflix-movie9.jpg"},
+    {"image":"assets/netflix-movie6.jpg"},
+    {"image":"assets/netflix-movie2.jpg"},
   ];
   List watchAgainView=[
-    {"image":"assets/netflix-movie16.jpg"},
-    {"image":"assets/netflix-movie17.jpg"},
-    {"image":"assets/netflix-movie18.jpg"},
-    {"image":"assets/netflix-movie19.jpg"},
-    {"image":"assets/netflix-movie20.jpg"},
+    {"image":"assets/netflix-movie9.jpg"},
+    {"image":"assets/netflix-movie1.jpg"},
+    {"image":"assets/netflix-movie10.jpg"},
+    {"image":"assets/netflix-movie4.jpg"},
+    {"image":"assets/netflix-movie5.jpg"},
   ];
   List seriesView=[
     {"image":"assets/netflix-series1.jpg"},
@@ -53,101 +53,74 @@ class _MainScreenState extends State<MainScreen> {
     ];
 
   @override
+  void initState() {
+    super.initState();
+
+    // WidgetsBinding.instance.addObserver(
+    //     LifecycleEventHandler(resumeCallBack: () async => setState(() {
+    //       // do something
+    //     }))
+    // );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: pageChange(),
       ),
-      bottomNavigationBar: SizedBox(
-        height: 65,
-        child: BottomNavigationBar(
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.grey,
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.black,
-          currentIndex: index,
-          selectedLabelStyle: TextStyle(fontSize: 8),
-          unselectedLabelStyle: TextStyle(fontSize: 8),
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
-                  size: 20,
-                  // color: (index == 0) ? Colors.white : Colors.grey,
-                ),
-                label: "Home",
-                // title: Text(
-                //   "Home",
-                //   style: TextStyle(
-                //       fontSize: 8,
-                //       color: (index == 0) ? Colors.white : Colors.grey),
-                // )
-            ),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.black,
+        currentIndex: index,
+        selectedLabelStyle: TextStyle(fontSize: 8),
+        unselectedLabelStyle: TextStyle(fontSize: 8),
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                size: 20,
+              ),
+              label: "Home",
+          ),
 
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.search,
-                  size: 20,
-                  // color: (index == 1) ? Colors.white : Colors.grey,
-                ),
-                label: "Search"
-            ),
-                // title: Text(
-                //   "Search",
-                //   style: TextStyle(
-                //       fontSize: 8,
-                //       color: (index == 0) ? Colors.white : Colors.grey),
-                // )),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.search,
+                size: 20,
+              ),
+              label: "Search"
+          ),
 
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.queue_play_next,
-                  size: 20,
-                  // color  : (index == 2) ? Colors.white : Colors.grey,
-                ),
-                label: "Coming Soon",),
-                // title: Text(
-                //   "Coming Soon",
-                //   style: TextStyle(
-                //       fontSize: 8,
-                //       color: (index == 0) ? Colors.white : Colors.grey),
-                // )),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.queue_play_next,
+                size: 20,
+              ),
+              label: "Coming Soon",),
 
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.file_download,
-                  size: 20,
-                  // color: (index == 3) ? Colors.white : Colors.grey,
-                ),
-                label: "Download",),
-                // title: Text(
-                //   "Download",
-                //   style: TextStyle(
-                //       fontSize: 8,
-                //       color: (index == 0) ? Colors.white : Colors.grey),
-                // )),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.file_download,
+                size: 20,
+              ),
+              label: "Download",),
 
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.toc,
-                  size: 20,
-                  // color: (index == 4) ? Colors.white : Colors.grey,
-                ),
-                label: "More",),
-                // title: Text(
-                //   "More",
-                //   style: TextStyle(
-                //       fontSize: 8,
-                //       color: (index == 0) ? Colors.white : Colors.grey),
-                // ))
-          ],
-          onTap:(int index){
-            setState(() {
-              this.index=index;
-            });
-          } ,
-        ),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.toc,
+                size: 20,
+              ),
+              label: "More",),
+        ],
+        onTap:(int index){
+          setState(() {
+            this.index=index;
+          });
+        } ,
       ),
     );
   }

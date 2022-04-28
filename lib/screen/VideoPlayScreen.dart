@@ -2,9 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:file_picker/file_picker.dart';
-// import 'package:external_path/external_path.dart';
+import 'package:flutter/services.dart';
 
 class VideoPlayScreen extends StatefulWidget {
   @override
@@ -13,7 +11,6 @@ class VideoPlayScreen extends StatefulWidget {
 
 class VideoPlayScreenStatus extends State<VideoPlayScreen> {
   VideoPlayerController _controller;
-  List<String> _exPath = [];
 
   @override
   void initState() {
@@ -23,15 +20,41 @@ class VideoPlayScreenStatus extends State<VideoPlayScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeLeft,
+      // DeviceOrientation.portraitDown,
+    ]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
     return Scaffold(
-      backgroundColor: Colors.grey,
-      // body: ,
+      body: LayoutBuilder(
+        builder: (context, constraints) => isVideoReady()
+            ? AspectRatio(
+          aspectRatio: constraints.maxWidth / constraints.maxHeight,
+          // _controller.value.aspectRatio,
+          child: VideoPlayer(_controller),
+        )
+            : Container(),
+      ),
     );
+  }
+
+  bool isVideoReady() {
+    if (_controller==null) {
+      return false;
+    }
+    return _controller.value.isInitialized;
   }
 
   @override
   void dispose() {
     _controller.dispose();
+
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      // DeviceOrientation.portraitDown,
+    ]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+
     super.dispose();
   }
 
@@ -41,17 +64,16 @@ class VideoPlayScreenStatus extends State<VideoPlayScreen> {
       return null;
     }
 
-    Directory dir = await getTemporaryDirectory();
-    FilePickerResult result = await FilePicker.platform.pickFiles();
-    if (result == null) {
-      return;
-    }
+    // FilePickerResult result = await FilePicker.platform.pickFiles();
+    // if (result == null) {
+    //   return;
+    // }
+    // File file = File(result.files.single.path);
+    // _controller = VideoPlayerController.file(file);
 
-    // await getPath();
-    // await getPublicDirectoryPath();
-
-    File file = File(result.files.single.path);
-    _controller = VideoPlayerController.file(file);
+    // todo : picker는 초기 1회만 얻어오고 이후로는 결과만 가지고 재생
+    String filename = "/data/user/0/com.example.netflix_ui/cache/file_picker/[VR] ITZY 'WANNABE' VR CAM │@SBS Inkigayo_2020.4.5 [0rDz0x1mCb4].webm";
+    _controller = VideoPlayerController.file(File(filename));
 
     await Future.wait( [_controller.initialize()] );
     setState(() {
@@ -60,8 +82,7 @@ class VideoPlayScreenStatus extends State<VideoPlayScreen> {
   }
 
   Future<bool> _getStatuses() async {
-    Map<Permission, PermissionStatus> statuses =
-    await [Permission.storage].request();
+    Map<Permission, PermissionStatus> statuses = await [Permission.storage].request();
 
     if (await Permission.storage.isGranted) {
       return Future.value(true);
@@ -69,30 +90,4 @@ class VideoPlayScreenStatus extends State<VideoPlayScreen> {
       return Future.value(false);
     }
   }
-
-// Get storage directory paths
-  // Like internal and external (SD card) storage path
-  // Future<void> getPath() async {
-  //   List<String> paths;
-  //   // getExternalStorageDirectories() will return list containing internal storage directory path
-  //   // And external storage (SD card) directory path (if exists)
-  //   paths = await ExternalPath.getExternalStorageDirectories();
-  //
-  //   setState(() {
-  //     _exPath = paths; // [/storage/emulated/0, /storage/B3AE-4D28]
-  //   });
-  // }
-  //
-  // // To get public storage directory path like Downloads, Picture, Movie etc.
-  // // Use below code
-  // Future<void> getPublicDirectoryPath() async {
-  //   String path;
-  //
-  //   path = await ExternalPath.getExternalStoragePublicDirectory(
-  //       ExternalPath.DIRECTORY_DOWNLOADS);
-  //
-  //   setState(() {
-  //     print(path); // /storage/emulated/0/Download
-  //   });
-  // }
 }
