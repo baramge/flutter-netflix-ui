@@ -79,8 +79,18 @@ class VideoPlayScreenStatus extends State<VideoPlayScreen> {
 
     await Future.wait( [_controller.initialize()] );
     setState(() {
-      Duration position = Duration( hours: 1,minutes: 11, seconds: 50 );
+      // 39:30
+      // 41:00
+      // 46:33
+      // 48:14
+      // 49:48
+      // 50: 10
+      // 1:11:50
+      Duration position = Duration( hours: 1,minutes: 11, seconds: 46 );
       // Duration position = Duration( minutes: 11, seconds: 30 );
+      // Duration position = Duration( minutes: 50, seconds: 10 );
+      // Duration position = Duration( minutes: 49, seconds: 48 );
+      // Duration position = Duration( minutes: 50, seconds: 10 );
       _controller.seekTo(position).then((value) => _controller.play());
       // _controller.play();
     });
